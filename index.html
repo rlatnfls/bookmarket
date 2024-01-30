@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <!-- ... existing head content ... -->
+    <style>
+        .hero h1, .hero h2 {
+            background-color: #90EE90; /* 연두색 */
+        }
+        .card-img-top {
+            height: 200px; /* 이미지 높이 */
+            object-fit: cover; /* 이미지를 꽉 채우도록 */
+        }
+        .card {
+            border: 1px solid #ddd; /* 카드의 경계선 */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* 그림자 효과 */
+            margin-bottom: 20px; /* 카드 사이 간격 */
+        }
+        /* ... existing styles ... */
+
+        /* 추가된 반응형 디자인 스타일 */
+        @media (max-width: 600px) {
+            .card-img-top {
+                height: 100px; /* 모바일에서 이미지 높이 줄이기 */
+            }
+            .card {
+                margin-bottom: 10px; /* 모바일에서 카드 간격 줄이기 */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>무슨 책을 읽어야 할 지 헤메는 고등학생들을 위해 책을 추천합니다</h1>
+        <h2>마음껏 둘러보세요^.^</h2>
+    </div>
+
+    <!-- 검색 바 추가 -->
+    <div class="search-bar">
+        <input type="text" id="bookSearch" onkeyup="searchBooks()" placeholder="책 제목으로 검색...">
+    </div>
+
+    <!-- Book Recommendations Section -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Card 1: 아주 작은 습관의 힘 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://blog.novice.io/assets/%EC%95%84%EC%A3%BC%EC%9E%91%EC%9D%80%EC%8A%B5%EA%B4%80%EC%9D%98%ED%9E%98-1.png" class="card-img-top" alt="아주 작은 습관의 힘">
+                    <div class="card-body">
+                        <h5 class="card-title">아주 작은 습관의 힘</h5>
+                        <p class="card-text">작은 습관들이 어떻게 삶에 큰 변화를 가져올 수 있는지 탐구하는 책입니다.</p>
+                        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=182285146" class="btn btn-primary">구매하기</a>
+                    </div>
+                </div>
+            </div>
+
+            <<!-- Card 2: 죽이고 싶은 아이 -->
+<div class="col-md-3">
+    <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.kXR6zAveXLeLAYpJQNjBYQHaHa?w=187&h=186&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="죽이고 싶은 아이">
+        <div class="card-body">
+            <h5 class="card-title">죽이고 싶은 아이</h5>
+            <p class="card-text">인간 심리와 관계의 복잡성을 탐구하는 깊이 있는 문학 작품입니다.</p>
+            <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=272118388" class="btn btn-primary">구매하기</a>
+        </div>
+    </div>
+</div>
+
+            <!-- Card 3: 이토록 공부가 재미있어지는 순간 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/7nQg/image/0HSBh1SYd6cBEgwPbG28vZxiRgE.jpg" class="card-img-top" alt="이토록 공부가 재미있어지는 순간">
+                    <div class="card-body">
+                        <h5 class="card-title">이토록 공부가 재미있어지는 순간</h5>
+                        <p class="card-text">학습 방법과 태도에 대한 새로운 관점을 제시하는 유익한 책입니다.</p>
+                        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=52456672" class="btn btn-primary">구매하기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: 우리가 빛의 속도로 갈 수 없다면 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/OIP.3FZRcJXLZoMQbORo4mXtKQAAAA?w=197&h=292&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="우리가 빛의 속도로 갈 수 없다면">
+                    <div class="card-body">
+                        <h5 class="card-title">우리가 빛의 속도로 갈 수 없다면</h5>
+                        <p class="card-text">우주와 인간 존재에 대한 탐구를 담은 과학적, 철학적 소설입니다.</p>
+                        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=193591681" class="btn btn-primary">구매하기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function searchBooks() {
+            var input, filter, cards, cardContainer, h5, title, i;
+            input = document.getElementById("bookSearch");
+            filter = input.value.toUpperCase();
+            cardContainer = document.getElementById("bookContainer");
+            cards = cardContainer.getElementsByClassName("card");
+            for (i = 0; i < cards.length; i++) {
+                title = cards[i].querySelector(".card-body h5.card-title");
+                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
